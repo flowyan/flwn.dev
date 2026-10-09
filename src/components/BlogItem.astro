@@ -1,0 +1,51 @@
+---
+interface Props {
+  title: string;
+  imageUrl: string;
+}
+const { title, imageUrl } = Astro.props;
+---
+
+<div class="blogItem">
+  <img src={imageUrl} alt={title} />
+  <p class="text-xl font-bold">{title}</p>
+</div>
+
+<style>
+  .blogItem {
+    height: 100%;
+    display: flex;
+    gap: 0.5rem;
+
+    border: 3px solid var(--module-border);
+    background: linear-gradient(
+      to bottom right,
+      var(--module-background),
+      var(--module-background-darker)
+    );
+    padding: 0.5rem;
+    transition: all 0.3s;
+
+    &:hover {
+      transition: all 0.3s;
+      background: linear-gradient(
+        to bottom right,
+        var(--module-background-darker),
+        var(--module-background-hover)
+      );
+      border-color: var(--module-border-hover);
+    }
+
+    img {
+      width: 32px;
+      height: 32px;
+      object-fit: fit;
+      transition: all 0.1s ease-in-out;
+
+      &:hover {
+        transition: all 0.1s ease-in-out;
+        transform: scale(1.01);
+      }
+    }
+  }
+</style>
