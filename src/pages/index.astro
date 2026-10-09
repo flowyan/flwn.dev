@@ -4,20 +4,20 @@ import Layout from "../layouts/Layout.astro";
 import Module from "../components/Module.astro";
 import LastFmModule from "../components/LastFmModule.astro";
 import ClickableFlwn from "../components/ClickableFlwn.astro";
-import RainBg from "../components/RainBg.astro";
 
-import flwnPic from "../assets/flwn.png";
 import tequilaPic from "../assets/tequila.jpg";
 import fatass from "../assets/tetofatass.jpg";
+import AdBoard from "../components/AdBoard.astro";
+import BlogsModule from "../components/BlogsModule.astro";
 ---
 
 <Layout>
-  <div class="flex flex-col gap-4 items-center h-full">
+  <div class="modulesContainer flex flex-col gap-4 items-center h-full">
     <Module
       title="welcome"
-      titleTitle="welcome to my website!"
+      titleDescription="welcome to my website!"
       icon={tequilaPic.src}
-      iconTitle="my (grandma's) awesome fucking cat"
+      iconDescription="my (grandma's) awesome fucking cat"
     >
       <div class="flex flex-row gap-4">
         <span>
@@ -37,23 +37,27 @@ import fatass from "../assets/tetofatass.jpg";
         </div>
       </div>
     </Module>
-    <div class="flex gap-4 w-full">
-      <Module
-        title="latest blog posts"
-        titleTitle="here are my latest blog posts where i yap"
-      >
-        soon
-      </Module>
-      <LastFmModule />
+    <div class="flex flex-col gap-4 w-full">
+      <div class="flex gap-4 justify-center">
+        <BlogsModule />
+        <LastFmModule />
+      </div>
+      <AdBoard />
     </div>
 
     <Module
       title="projects"
-      titleTitle="the projects that i am proud of"
+      titleDescription="the projects that i am proud of"
       icon={fatass.src}
-      iconTitle="fat ass"
+      iconDescription="fat ass"
     >
       soon
     </Module>
   </div>
 </Layout>
+
+<style>
+  .modulesContainer {
+    max-width: 1024px;
+  }
+</style>
