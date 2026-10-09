@@ -1,0 +1,74 @@
+<style>
+  .bgcontainer {
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    overflow: hidden;
+  }
+
+  .omori {
+    position: absolute;
+    z-index: 1;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+
+  .blending {
+    z-index: 2;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background: radial-gradient(
+      circle,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 1) 58%
+    );
+  }
+</style>
+
+<audio
+  src="mirrors/acrophobia.mp3"
+  id="sound"
+  loop
+  style={{ display: "none" }}
+/>
+
+<title>a mirror?</title>
+
+<div class="blending" />
+
+<div class="bgcontainer">
+  <img src="mirrors/alone.gif" id="omori" class="omori" alt="" />
+</div>
+
+<script async defer>
+  window.onload = () => {
+    const theimage = document.getElementById("omori");
+    const audio = document.getElementById("sound");
+
+    theomori();
+    function theomori() {
+      const chance = 50;
+      const rng = Math.floor(Math.random() * chance);
+
+      if (rng === 0) {
+        theimage.src = "mirrors/something.gif";
+        audio.play();
+      } else if (rng === 1) {
+        theimage.src = "mirrors/mari.gif";
+        audio.play();
+      } else if (rng === 2) {
+        theimage.src = "mirrors/somethingdoor.gif";
+      } else if (rng === 3) {
+        theimage.src = "mirrors/somethingdinner.gif";
+        audio.play();
+      } else {
+        theimage.src = "mirrors/alone.gif";
+        audio.pause();
+      }
+    }
+
+    setInterval(theomori, 5000);
+  };
+</script>

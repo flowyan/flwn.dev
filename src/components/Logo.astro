@@ -1,0 +1,82 @@
+---
+import flwnImage from "../assets/flwn.png";
+
+const letters = ["F", "L", "W", "N", ".", "D", "E", "V"];
+---
+
+<div class="theHolderOfText">
+  {letters.map((letter, index) => (
+    <span class="text">{letter}</span>
+  ))}
+</div>
+
+<style lang="scss">
+  $main_color: var(--primary);
+  $secondary_color: var(--secondary);
+
+  .theHolderOfText {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+
+    border-bottom: 10px solid $main_color;
+    padding: 0 1.5rem 0.75rem;
+
+    margin-bottom: 0.75rem;
+  }
+
+  .text {
+    font-family: "Silkscreen", monospace;
+
+    display: inline-block;
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: normal;
+    color: $main_color;
+    text-shadow: 0 0 10px $main_color;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    // disable all selection
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+  }
+
+  .text:hover {
+    color: $secondary_color;
+    animation: 1s ease-in-out 0s infinite alternate none running shake;
+    transform-origin: center;
+    transition: all 0.3s ease-in-out;
+    text-shadow: 0 0 10px $main_color;
+  }
+
+  $degrees: 5deg;
+  $scale: 1.1;
+
+  @keyframes shake {
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+
+    25% {
+      transform: rotate($degrees) scale($scale);
+    }
+
+    50% {
+      transform: rotate(-$degrees) scale($scale);
+    }
+
+    75% {
+      transform: rotate($degrees) scale($scale);
+    }
+
+    100% {
+      transform: rotate(0deg) scale($scale);
+    }
+  }
+</style>

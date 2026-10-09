@@ -1,0 +1,65 @@
+---
+import flwnImage from "../assets/flwn.png";
+---
+
+<div class="flwn">
+  <img src={flwnImage.src} alt="lala" />
+</div>
+
+<style>
+  .flwn {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease-in-out;
+
+    img {
+      transition: all 0.1s ease-in-out;
+
+      border: 3px solid var(--primary);
+      filter: drop-shadow(0 0 0.5rem var(--primary));
+
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -o-user-select: none;
+      user-select: none;
+
+      -webkit-user-drag: none;
+      -khtml-user-drag: none;
+      -moz-user-drag: none;
+      -o-user-drag: none;
+      user-drag: none;
+    }
+
+    &:hover {
+      animation: wiggle 0.5s ease-in-out infinite;
+    }
+
+    :active {
+      transform: scale(0.95);
+    }
+  }
+
+  @keyframes wiggle {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(1deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    75% {
+      transform: rotate(-1deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+</style>

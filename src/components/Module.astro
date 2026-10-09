@@ -1,0 +1,104 @@
+---
+const { title, titleTitle, icon, iconTitle } = Astro.props;
+---
+
+<div class="moduleContainer">
+  <div class="moduleBar">
+    {icon && (
+      <img
+        src={icon}
+        title={iconTitle}
+        alt="Module Icon"
+        class="w-8 h-8 inline-block mr-2"
+      />
+    )}
+    {title && (
+      <h2 title={titleTitle} class="text-3xl">
+        {title}
+      </h2>
+    )}
+  </div>
+  <div class="module">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .moduleContainer {
+    width: 100%;
+    max-width: 1024px;
+
+    backdrop-filter: blur(10px);
+  }
+
+  .module {
+    background: linear-gradient(
+      to bottom right,
+      var(--module-background),
+      var(--module-background-darker)
+    );
+    padding: 0.5rem;
+    border: 3px solid var(--module-border);
+
+    transition: all 0.3s;
+
+    &:hover {
+      transition: all 0.3s;
+      background: linear-gradient(
+        to bottom right,
+        var(--module-background-darker),
+        var(--module-background-hover)
+      );
+      border-color: var(--module-border-hover);
+    }
+  }
+
+  .moduleBar {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+    transition: all 0.3s;
+    background: linear-gradient(
+      to bottom,
+      var(--primary-darker),
+      var(--primary)
+    );
+    padding: 0.5rem;
+    min-height: 48px;
+    border: 3px solid var(--primary);
+
+    font-family: "Silkscreen", monospace;
+    font-weight: bolder;
+
+    &:hover {
+      transition: all 0.3s;
+      background: linear-gradient(
+        to bottom,
+        var(--primary-darker-hover),
+        var(--primary-hover)
+      );
+      border-color: var(--primary-hover);
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--secondary);
+      text-shadow: 0 0 5px var(--primary-background);
+    }
+
+    img {
+      border: 2px solid var(--secondary);
+      box-shadow: 0 0 5px var(--primary-background);
+      transition: all 0.1s ease-in-out;
+
+      &:hover {
+        border-color: var(--secondary-hover);
+        box-shadow: 0 0 10px var(--primary-background);
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
+</style>
