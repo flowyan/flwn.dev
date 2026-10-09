@@ -1,23 +1,23 @@
 ---
-const { title, titleTitle, icon, iconTitle } = Astro.props;
+import ModuleBar from "./ModuleBar.astro";
+
+interface Props {
+  title: string;
+  titleDescription?: string;
+  icon?: string;
+  iconDescription?: string;
+}
+
+const { title, titleDescription, icon, iconDescription } = Astro.props;
 ---
 
 <div class="moduleContainer">
-  <div class="moduleBar">
-    {icon && (
-      <img
-        src={icon}
-        title={iconTitle}
-        alt="Module Icon"
-        class="w-8 h-8 inline-block mr-2"
-      />
-    )}
-    {title && (
-      <h2 title={titleTitle} class="text-3xl">
-        {title}
-      </h2>
-    )}
-  </div>
+  <ModuleBar
+    title={title}
+    titleDescription={titleDescription}
+    icon={icon}
+    iconDescription={iconDescription}
+  />
   <div class="module">
     <slot />
   </div>
@@ -27,11 +27,17 @@ const { title, titleTitle, icon, iconTitle } = Astro.props;
   .moduleContainer {
     width: 100%;
     max-width: 1024px;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
 
     backdrop-filter: blur(10px);
   }
 
   .module {
+    flex: 1;
+
     background: linear-gradient(
       to bottom right,
       var(--module-background),
@@ -50,55 +56,6 @@ const { title, titleTitle, icon, iconTitle } = Astro.props;
         var(--module-background-hover)
       );
       border-color: var(--module-border-hover);
-    }
-  }
-
-  .moduleBar {
-    display: flex;
-    align-items: center;
-    gap: 0.1rem;
-    transition: all 0.3s;
-    background: linear-gradient(
-      to bottom,
-      var(--primary-darker),
-      var(--primary)
-    );
-    padding: 0.5rem;
-    min-height: 48px;
-    border: 3px solid var(--primary);
-
-    font-family: "Silkscreen", monospace;
-    font-weight: bolder;
-
-    &:hover {
-      transition: all 0.3s;
-      background: linear-gradient(
-        to bottom,
-        var(--primary-darker-hover),
-        var(--primary-hover)
-      );
-      border-color: var(--primary-hover);
-    }
-
-    h2 {
-      margin: 0;
-      color: var(--secondary);
-      text-shadow: 0 0 5px var(--primary-background);
-    }
-
-    img {
-      border: 2px solid var(--secondary);
-      box-shadow: 0 0 5px var(--primary-background);
-      transition: all 0.1s ease-in-out;
-
-      &:hover {
-        border-color: var(--secondary-hover);
-        box-shadow: 0 0 10px var(--primary-background);
-      }
-
-      &:active {
-        transform: scale(0.95);
-      }
     }
   }
 </style>

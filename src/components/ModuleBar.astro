@@ -1,0 +1,76 @@
+---
+interface Props {
+  title: string;
+  titleDescription?: string;
+  icon?: string;
+  iconDescription?: string;
+}
+const { title, titleDescription, icon, iconDescription } = Astro.props;
+---
+
+<div class="moduleBar">
+  {icon && (
+    <img
+      src={icon}
+      title={iconDescription}
+      alt="Module Icon"
+      class="w-8 h-8 inline-block mr-2"
+    />
+  )}
+  {title && (
+    <h2 title={titleDescription} class="text-3xl">
+      {title}
+    </h2>
+  )}
+</div>
+
+<style>
+  .moduleBar {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+    transition: all 0.3s;
+    background: linear-gradient(
+      to bottom,
+      var(--primary-darker),
+      var(--primary)
+    );
+    padding: 0.5rem;
+    min-height: 48px;
+    border: 3px solid var(--primary);
+
+    font-family: "Silkscreen", monospace;
+    font-weight: bolder;
+
+    &:hover {
+      transition: all 0.3s;
+      background: linear-gradient(
+        to bottom,
+        var(--primary-darker-hover),
+        var(--primary-hover)
+      );
+      border-color: var(--primary-hover);
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--secondary);
+      text-shadow: 0 0 5px var(--primary-background);
+    }
+
+    img {
+      border: 2px solid var(--secondary);
+      box-shadow: 0 0 5px var(--primary-background);
+      transition: all 0.1s ease-in-out;
+
+      &:hover {
+        border-color: var(--secondary-hover);
+        box-shadow: 0 0 10px var(--primary-background);
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
+</style>
