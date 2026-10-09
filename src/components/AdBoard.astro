@@ -1,0 +1,72 @@
+---
+interface Ad {
+  title: string;
+  imageUrl: string;
+  link: string;
+}
+
+const ads: Ad[] = [
+  {
+    title: "cat.basil.florist",
+    imageUrl: "/img/fakeads/catbasilflorist.png",
+    link: "https://cat.basil.florist",
+  },
+  {
+    title: "cat.basil.florist",
+    imageUrl: "/img/fakeads/catbasilflorist.png",
+    link: "https://cat.basil.florist",
+  },
+  {
+    title: "cat.basil.florist",
+    imageUrl: "/img/fakeads/catbasilflorist.png",
+    link: "https://cat.basil.florist",
+  },
+  {
+    title: "cat.basil.florist",
+    imageUrl: "/img/fakeads/catbasilflorist.png",
+    link: "https://cat.basil.florist",
+  },
+  {
+    title: "cat.basil.florist",
+    imageUrl: "/img/fakeads/catbasilflorist.png",
+    link: "https://cat.basil.florist",
+  },
+];
+---
+
+<div class="adBoard">
+  {ads.map((ad) => (
+    <a href={ad.link} target="_blank" rel="noopener noreferrer">
+      <img src={ad.imageUrl} alt={ad.title} />
+    </a>
+  ))}
+</div>
+
+<style>
+  .adBoard {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    gap: 0.5rem;
+
+    background: linear-gradient(
+      to bottom right,
+      var(--module-background),
+      var(--module-background-darker)
+    );
+  }
+
+  .adBoard a {
+    display: block;
+    border: 3px solid var(--module-border);
+    transition: all 0.3s;
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+</style>
