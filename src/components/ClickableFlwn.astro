@@ -2,7 +2,35 @@
 import flwnImage from "../assets/flwn.png";
 ---
 
-<div class="flwn">
+<script>
+  const sounds = [
+    "boing.mp3",
+    "gnarp1.mp3",
+    "gnarp2.mp3",
+    "gnarp3.mp3",
+    "lala.mp3",
+    "m_ow01.mp3",
+    "m_ow02.mp3",
+    "m_pain02.mp3",
+    "m_pain08.mp3",
+    "punch.mp3",
+    "start64.mp3",
+  ];
+  function playRandomSound() {
+    const randomIndex = Math.floor(Math.random() * sounds.length);
+    const sound = new Audio(`/sfx/${sounds[randomIndex]}`);
+    sound.play();
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const flwnElement = document.getElementById("clickableFlwn");
+    flwnElement?.addEventListener("click", () => {
+      playRandomSound();
+    });
+  });
+</script>
+
+<div class="flwn" id="clickableFlwn" title="flwn!">
   <img src={flwnImage.src} alt="lala" />
 </div>
 
@@ -41,7 +69,7 @@ import flwnImage from "../assets/flwn.png";
     }
 
     :active {
-      transform: scale(0.95);
+      transform: scale(0.85);
     }
   }
 
