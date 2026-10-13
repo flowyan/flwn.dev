@@ -12,6 +12,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/node": "^11.1.7",
     "@astrojs/react": "^7.0.0",
     "@fontsource-variable/rubik": "^5.3.0",
     "@fontsource/silkscreen": "^5.3.0",
