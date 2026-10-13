@@ -3,8 +3,8 @@
 //TODO: Add more dancers and a randomizer for them with button to change them
 
 import musicjak from "../assets/musicjak.png";
-import lastfmLogo from "../assets/lastfm.png";
 import ModuleBar from "./ModuleBar.astro";
+import { Dancer } from "./Dancer/Dancer";
 
 const lastFmApi = await fetch("https://api.flwn.dev/lastfm").then((res) =>
   res.json(),
@@ -47,28 +47,11 @@ const nowPlaying =
         </p>
       </div>
     </div>
-    <div class="dancer">
-      <img
-        title={nowPlaying ? "the dancer :)" : "the dancer is sleeping."}
-        class="dancerImg"
-        src={nowPlaying ? "/dancers/sourpls.avif" : "/dancers/eepy.webp"}
-        alt="Dancing Animation"
-      />
-      <a
-        href="https://www.last.fm/user/Flowyan"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="scrobbleCount"
-        title="Total Scrobbles"
-      >
-        {lastFmApi.recenttracks["@attr"].total}
-        <img
-          src={lastfmLogo.src}
-          alt="Last.fm Logo"
-          class="w-6 h-6 inline-block ml-1"
-        />
-      </a>
-    </div>
+    <Dancer
+      client:load
+      nowPlaying={nowPlaying}
+      scrobbleCount={lastFmApi.recenttracks["@attr"].total}
+    />
   </div>
 </div>
 
@@ -128,46 +111,6 @@ const nowPlaying =
           transition: all 0.1s ease-in-out;
           transform: scale(1.01);
         }
-      }
-    }
-
-    .dancer {
-      position: relative;
-      background: black;
-      display: flex;
-      justify-content: flex-end;
-      align-items: flex-end;
-      flex-grow: 1;
-      border-top: 3px solid var(--module-border);
-
-      .scrobbleCount {
-        display: flex;
-        align-items: center;
-        gap: 0.15rem;
-        font-size: 1.2rem;
-        font-weight: 100;
-        color: var(--secondary);
-        text-shadow: 0 0 5px var(--primary-background);
-        z-index: 2;
-        padding-right: 0.25rem;
-
-        &:hover {
-          text-decoration: underline;
-        }
-
-        & img {
-          width: 24px;
-          height: 24px;
-        }
-      }
-      .dancerImg {
-        z-index: 1;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: fill;
       }
     }
   }

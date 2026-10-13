@@ -1,0 +1,41 @@
+.dancer {
+    position: relative;
+    background: black;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-grow: 1;
+    border-top: 3px solid var(--module-border);
+    height: 70px;
+
+    .scrobbleCount {
+        display: flex;
+        align-items: center;
+        gap: 0.15rem;
+        font-size: 1.2rem;
+        font-weight: 100;
+        color: var(--secondary);
+        text-shadow: 0 0 5px var(--primary-background);
+        z-index: 2;
+        padding-right: 0.25rem;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        & img {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    .dancerImg {
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+    }
+}
