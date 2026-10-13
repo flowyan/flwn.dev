@@ -19,6 +19,7 @@ import flwnImage from "../assets/flwn.png";
   function playRandomSound() {
     const randomIndex = Math.floor(Math.random() * sounds.length);
     const sound = new Audio(`/sfx/${sounds[randomIndex]}`);
+    sound.volume = 0.5;
     sound.play();
   }
 
@@ -30,7 +31,7 @@ import flwnImage from "../assets/flwn.png";
   });
 </script>
 
-<div class="flwn" id="clickableFlwn" title="flwn!">
+<div class="flwn" id="clickableFlwn" title="flwn! click me ;)">
   <img src={flwnImage.src} alt="lala" />
 </div>
 

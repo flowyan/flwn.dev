@@ -2,7 +2,7 @@
 import auroraNerd from "../assets/auroranerd.webp";
 import flwnPic from "../assets/flwn.png";
 import BlogItem from "./BlogItem.astro";
-import ModuleBar from "./ModuleBar.astro";
+import ModuleBar from "./ModuleBar/ModuleBar";
 ---
 
 <div class="blogsModuleContainer">
@@ -13,10 +13,10 @@ import ModuleBar from "./ModuleBar.astro";
     iconDescription="omg hi aurora ><"
   />
   <div class="module">
-    <BlogItem title="my third blog post" imageUrl={flwnPic.src} />
-    <BlogItem title="my second blog post" imageUrl={flwnPic.src} />
-    <BlogItem title="my first blog post" imageUrl={flwnPic.src} />
-    <BlogItem title="my first blog post" imageUrl={flwnPic.src} />
+    <div class="noBlogPosts flex justify-center items-center h-full text-center text-lg">
+      <p>no blog posts yet, check back later!</p>
+    </div>
+    <!--<BlogItem title="my third blog post" imageUrl={flwnPic.src} />-->
   </div>
 </div>
 
@@ -39,6 +39,7 @@ import ModuleBar from "./ModuleBar.astro";
       gap: 0.5rem;
       overflow-x: hidden;
       overflow-y: scroll;
+      flex-grow: 1;
 
       background: linear-gradient(
         to bottom right,
@@ -60,5 +61,11 @@ import ModuleBar from "./ModuleBar.astro";
         border-color: var(--module-border-hover);
       }
     }
+  }
+
+  .noBlogPosts {
+    width: 100%;
+    height: 100%;
+    background: var(--primary);
   }
 </style>

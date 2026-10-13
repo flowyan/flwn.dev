@@ -1,0 +1,58 @@
+.lastFmModuleContainer {
+    width: 400px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    flex-shrink: 0;
+
+    backdrop-filter: blur(10px);
+
+    .lastFmModule {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+
+        background: linear-gradient(
+                to bottom right,
+                var(--module-background),
+                var(--module-background-darker)
+        );
+        border: 3px solid var(--module-border);
+
+        transition: all 0.3s;
+
+        &:hover {
+            transition: all 0.3s;
+            background: linear-gradient(
+                    to bottom right,
+                    var(--module-background-darker),
+                    var(--module-background-hover)
+            );
+            border-color: var(--module-border-hover);
+
+            .dancer {
+                border-top: 3px solid var(--module-border-hover);
+            }
+        }
+
+        .coverArt {
+            background-color: var(--primary-background);
+            background: url("/img/musicjak.png");
+            background-size: cover;
+            height: 100px;
+            width: 100px;
+            max-width: 100px;
+            min-width: 100px;
+            object-fit: cover;
+            border: 2px solid var(--secondary);
+            box-shadow: 0 0 5px var(--primary-background);
+            transition: all 0.1s ease-in-out;
+
+            &:hover {
+                transition: all 0.1s ease-in-out;
+                transform: scale(1.01);
+            }
+        }
+    }
+}

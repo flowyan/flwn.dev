@@ -2,13 +2,14 @@
 import Layout from "../layouts/Layout.astro";
 
 import Module from "../components/Module.astro";
-import LastFmModule from "../components/LastFmModule.astro";
 import ClickableFlwn from "../components/ClickableFlwn.astro";
 
 import tequilaPic from "../assets/tequila.jpg";
 import fatass from "../assets/tetofatass.jpg";
 import AdBoard from "../components/AdBoard.astro";
 import BlogsModule from "../components/BlogsModule.astro";
+import Socials from "../components/Socials.astro";
+import LastFmModule from "../components/LastFmModule/LastFmModule";
 ---
 
 <Layout>
@@ -40,9 +41,10 @@ import BlogsModule from "../components/BlogsModule.astro";
     <div class="flex flex-col gap-4 w-full">
       <div class="flex gap-4 justify-center">
         <BlogsModule />
-        <LastFmModule />
+        <LastFmModule client:load />
       </div>
-      <AdBoard />
+      <Socials />
+      <!--<AdBoard />-->
     </div>
 
     <Module
@@ -51,7 +53,7 @@ import BlogsModule from "../components/BlogsModule.astro";
       icon={fatass.src}
       iconDescription="fat ass"
     >
-      soon
+      Projects will be added soon :)
     </Module>
   </div>
 </Layout>

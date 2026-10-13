@@ -1,0 +1,48 @@
+.moduleBar {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+    transition: all 0.3s;
+    background: linear-gradient(
+            to bottom,
+            var(--primary-darker),
+            var(--primary)
+    );
+    padding: 0.5rem;
+    min-height: 48px;
+    border: 3px solid var(--primary);
+
+    font-family: "Silkscreen", monospace;
+    font-weight: bolder;
+}
+
+.moduleBar:hover {
+    transition: all 0.3s;
+    background: linear-gradient(
+            to bottom,
+            var(--primary-darker-hover),
+            var(--primary-hover)
+    );
+    border-color: var(--primary-hover);
+}
+
+.moduleBar h2 {
+    margin: 0;
+    color: var(--secondary);
+    text-shadow: 0 0 5px var(--primary-background);
+}
+
+.moduleBar img {
+    border: 2px solid var(--secondary);
+    box-shadow: 0 0 5px var(--primary-background);
+    transition: all 0.1s ease-in-out;
+}
+
+.moduleBar img:hover {
+    border-color: var(--secondary-hover);
+    box-shadow: 0 0 10px var(--primary-background);
+}
+
+.moduleBar img:active {
+    transform: scale(0.95);
+}
